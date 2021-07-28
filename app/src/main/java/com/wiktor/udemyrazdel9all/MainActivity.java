@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.wiktor.udemyrazdel9all.lessons.Lesson56;
+import com.wiktor.udemyrazdel9all.lessons.Lesson57;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLesson56;
+    private Button buttonLesson57;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonLesson56 = findViewById(R.id.button_lesson_56);
         buttonLesson56.setOnClickListener(this);
+        buttonLesson57 = findViewById(R.id.button_lesson_57);
+        buttonLesson57.setOnClickListener(this);
 
     }
 
@@ -29,6 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_lesson_56:
                 Intent intent = new Intent(this, Lesson56.class);
                 startActivity(intent);
+                break;
+            case R.id.button_lesson_57:
+                Intent intent1 = new Intent(this, Lesson57.class);
+                startActivity(intent1);
                 break;
         }
 
