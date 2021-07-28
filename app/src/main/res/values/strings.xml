@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UdemyRazdel9All</string>
+    <string name="button_text_download">Загрузить изображение</string>
 </resources>
