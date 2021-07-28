@@ -19,6 +19,8 @@ import java.util.concurrent.ExecutionException;
 
 public class Lesson56 extends AppCompatActivity {
 
+    //todo переделать на kotlin
+
     // Урок 56. Взять всю разметку страницы https://mail.ru/ и вывести в логи
 
     private String mailRu = "https://mail.ru/";
