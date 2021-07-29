@@ -22,8 +22,11 @@ import java.util.concurrent.ExecutionException;
 
 public class Lesson57 extends AppCompatActivity {
 
+    // Урок 57 загрузка картинки из интернета
+
     private ImageView imageView;
-    private String url = "https://s1.travelask.ru/system/images/files/000/227/462/overview/5bf6c0822000009f060295c2.jpeg?1556994800";
+
+    private String url = "https://i.pinimg.com/originals/c1/b7/15/c1b7158269b5ceda65e795b1543d805c.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

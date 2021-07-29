@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.wiktor.udemyrazdel9all.lessons.Lesson56;
 import com.wiktor.udemyrazdel9all.lessons.Lesson57;
+import com.wiktor.udemyrazdel9all.lessons.Lesson58;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_lesson_57:
                 Intent intent1 = new Intent(this, Lesson57.class);
                 startActivity(intent1);
+                break;
+            case R.id.button_lesson_58:
+                Intent intent2 = new Intent(this, Lesson58.class);
+                startActivity(intent2);
                 break;
         }
 
