@@ -18,7 +18,7 @@
 
     <Button
         android:id="@+id/button_lesson_56"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Урок 56"
@@ -28,7 +28,7 @@
 
     <Button
         android:id="@+id/button_lesson_57"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Урок 57"
@@ -38,7 +38,7 @@
 
     <Button
         android:id="@+id/button_lesson_58"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Урок 58"
@@ -48,12 +48,22 @@
 
     <Button
         android:id="@+id/button_lesson_60"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Урок 60"
+        android:text="Урок 60. Угадай звезду"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_lesson_58" />
+
+    <Button
+        android:id="@+id/button_lesson_61"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Урок 61. JSON"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_lesson_60" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
