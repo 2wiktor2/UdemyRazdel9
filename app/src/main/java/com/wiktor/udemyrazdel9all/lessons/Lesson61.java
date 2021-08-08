@@ -26,6 +26,7 @@ public class Lesson61 extends AppCompatActivity {
     // api.openweathermap.org/data/2.5/weather?q=moscow&appid=f42000c97a78ddd4b5f32081010bcd22
     //  f42000c97a78ddd4b5f32081010bcd22
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
