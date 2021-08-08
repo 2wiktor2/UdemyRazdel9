@@ -72,6 +72,7 @@ public class Lesson60 extends AppCompatActivity {
     private void getContent() {
         DownloadContentTask task = new DownloadContentTask();
         try {
+//            private String url = "https://www.forbes.ru/rating/50-zvezd-2011/2011";
             String content = task.execute(url).get();
             String start = "<div class=\"panel-pane pane-rating-content\">";
             String finish = "<footer class=\"footer\">";
