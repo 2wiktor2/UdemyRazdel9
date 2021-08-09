@@ -10,11 +10,12 @@
         android:id="@+id/textView_main_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:text="Уроки раздела 9"
+        android:padding="8dp"
+        android:text="Уроки раздела 9. Данные из интернета. JSON."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/button_lesson_56"
@@ -75,5 +76,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_lesson_61" />
+
+    <TextView
+        android:id="@+id/textView_main_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Уроки раздела 10. Постоянное хранение данных."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_lesson_62" />
+
+    <Button
+        android:id="@+id/button_lesson_63"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Урок 63. Shared Preferences.Тренажер для мозга"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_main_title2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

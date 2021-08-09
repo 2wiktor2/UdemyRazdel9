@@ -13,6 +13,7 @@ import com.wiktor.udemyrazdel9all.lessons.Lesson58;
 import com.wiktor.udemyrazdel9all.lessons.Lesson60;
 import com.wiktor.udemyrazdel9all.lessons.Lesson61;
 import com.wiktor.udemyrazdel9all.lessons.Lesson62;
+import com.wiktor.udemyrazdel9all.lessons.Lesson63;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonLesson60;
     private Button buttonLesson61;
     private Button buttonLesson62;
+    private Button buttonLesson63;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonLesson61.setOnClickListener(this);
         buttonLesson62 = findViewById(R.id.button_lesson_62);
         buttonLesson62.setOnClickListener(this);
+        buttonLesson63 = findViewById(R.id.button_lesson_63);
+        buttonLesson63.setOnClickListener(this);
 
     }
 
@@ -69,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_lesson_62:
                 Intent intent5 = new Intent(this, Lesson62.class);
                 startActivity(intent5);
+                break;
+            case R.id.button_lesson_63:
+                Intent intent6 = new Intent(this, Lesson63.class);
+                startActivity(intent6);
                 break;
         }
 
