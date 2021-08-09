@@ -12,6 +12,7 @@ import com.wiktor.udemyrazdel9all.lessons.Lesson57;
 import com.wiktor.udemyrazdel9all.lessons.Lesson58;
 import com.wiktor.udemyrazdel9all.lessons.Lesson60;
 import com.wiktor.udemyrazdel9all.lessons.Lesson61;
+import com.wiktor.udemyrazdel9all.lessons.Lesson62;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -57,15 +58,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent2 = new Intent(this, Lesson58.class);
                 startActivity(intent2);
                 break;
-                case R.id.button_lesson_60:
+            case R.id.button_lesson_60:
                 Intent intent3 = new Intent(this, Lesson60.class);
                 startActivity(intent3);
                 break;
-                case R.id.button_lesson_61:
+            case R.id.button_lesson_61:
                 Intent intent4 = new Intent(this, Lesson61.class);
                 startActivity(intent4);
                 break;
-                case R.id.button_lesson_62:
+            case R.id.button_lesson_62:
                 Intent intent5 = new Intent(this, Lesson62.class);
                 startActivity(intent5);
                 break;

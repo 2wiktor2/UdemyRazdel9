@@ -2,4 +2,7 @@
     <string name="app_name">UdemyRazdel9All</string>
     <string name="button_text_download">Загрузить изображение</string>
     <string name="photo_of_star">Фото знаменитости</string>
+
+    <string name="button_text">Показать погоду</string>
+    <string name="et_hint_text">Введите название города или индекс</string>
 </resources>
