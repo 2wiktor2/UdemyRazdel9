@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".lessons.Lesson63">
 
+    <TextView
+        android:padding="15dp"
+        tools:text="TEST"
+        android:id="@+id/textViewTimer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
