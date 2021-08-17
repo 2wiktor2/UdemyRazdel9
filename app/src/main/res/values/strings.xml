@@ -5,4 +5,5 @@
 
     <string name="button_text">Показать погоду</string>
     <string name="et_hint_text">Введите название города или индекс</string>
+    <string name="button_text_start_new_game">Начать новыю игру</string>
 </resources>

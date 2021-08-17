@@ -13,7 +13,7 @@ import com.wiktor.udemyrazdel9all.lessons.Lesson58;
 import com.wiktor.udemyrazdel9all.lessons.Lesson60;
 import com.wiktor.udemyrazdel9all.lessons.Lesson61;
 import com.wiktor.udemyrazdel9all.lessons.Lesson62;
-import com.wiktor.udemyrazdel9all.lessons.Lesson63;
+import com.wiktor.udemyrazdel9all.lessons.lesson63.Lesson63;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
