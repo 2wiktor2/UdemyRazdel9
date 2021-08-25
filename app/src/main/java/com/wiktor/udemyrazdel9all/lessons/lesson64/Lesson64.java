@@ -1,6 +1,8 @@
 package com.wiktor.udemyrazdel9all.lessons.lesson64;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.wiktor.udemyrazdel9all.R;
 
@@ -23,6 +26,7 @@ public class Lesson64 extends AppCompatActivity {
 
     private RecyclerView recyclerViewNotes;
     public static final ArrayList<Note> notes = new ArrayList<>();
+    private NotesAdapter notesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +42,43 @@ public class Lesson64 extends AppCompatActivity {
             notes.add(new Note("заголовок4", "описание4", "понедельник4", 1));
             notes.add(new Note("заголовок5", "описание5", "понедельник5", 2));
         }
-        NotesAdapter notesAdapter = new NotesAdapter(notes);
+        notesAdapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(notesAdapter);
+        notesAdapter.setOnNoteClickListener(new NotesAdapter.OnNoteClickListener() {
+            @Override
+            public void onNoteClick(int position) {
+                Toast.makeText(Lesson64.this, "номер позиции:" + position, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onLongClick(int position) {
+                remove(position);
+            }
+        });
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                remove(viewHolder.getAdapterPosition());
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewNotes);
     }
 
     public void onClickAddNote(View view) {
         Intent intent = new Intent(this, AddNoteActivity.class);
         startActivity(intent);
+    }
+
+    private void remove(int position) {
+        notes.remove(position);
+        notesAdapter.notifyDataSetChanged();
     }
 }
