@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.wiktor.udemyrazdel9all.lessons.ActivityStopWatch;
+import com.wiktor.udemyrazdel9all.lessons.ActivityTimer;
 import com.wiktor.udemyrazdel9all.lessons.Lesson56;
 import com.wiktor.udemyrazdel9all.lessons.Lesson57;
 import com.wiktor.udemyrazdel9all.lessons.Lesson58;
@@ -18,6 +20,8 @@ import com.wiktor.udemyrazdel9all.lessons.lesson64.Lesson64;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button buttonStopWatch; //Секундомер
+    private Button buttonTimer;
     private Button buttonLesson56;
     private Button buttonLesson57;
     private Button buttonLesson58;
@@ -32,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        buttonStopWatch = findViewById(R.id.button_stopwatch);
+        buttonStopWatch.setOnClickListener(this);
+        buttonTimer = findViewById(R.id.button_timer);
+        buttonTimer.setOnClickListener(this);
         buttonLesson56 = findViewById(R.id.button_lesson_56);
         buttonLesson56.setOnClickListener(this);
         buttonLesson57 = findViewById(R.id.button_lesson_57);
@@ -54,6 +63,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.button_stopwatch:
+                Intent intent0 = new Intent(this, ActivityStopWatch.class);
+                startActivity(intent0);
+                break;
+            case R.id.button_timer:
+                Intent intent00 = new Intent(this, ActivityTimer.class);
+                startActivity(intent00);
+                break;
             case R.id.button_lesson_56:
                 Intent intent = new Intent(this, Lesson56.class);
                 startActivity(intent);
@@ -82,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent6 = new Intent(this, Lesson63.class);
                 startActivity(intent6);
                 break;
-                case R.id.button_lesson_64:
+            case R.id.button_lesson_64:
                 Intent intent7 = new Intent(this, Lesson64.class);
                 startActivity(intent7);
                 break;

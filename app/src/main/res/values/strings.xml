@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">UdemyRazdel9All</string>
+
+    <string name="init_timer">00:00:00</string>
+    <string name="button_start">Пуск</string>
+    <string name="button_pause">Пауза</string>
+    <string name="button_reset">Сброс</string>
+
     <string name="button_text_download">Загрузить изображение</string>
     <string name="photo_of_star">Фото знаменитости</string>
-
     <string name="button_text">Показать погоду</string>
     <string name="et_hint_text">Введите название города или индекс</string>
     <string name="button_text_start_new_game">Начать новыю игру</string>
