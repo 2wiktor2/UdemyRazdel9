@@ -41,6 +41,12 @@ public class Lesson64 extends AppCompatActivity {
             notes.add(new Note("заголовок3", "описание3", "понедельник3", 3));
             notes.add(new Note("заголовок4", "описание4", "понедельник4", 1));
             notes.add(new Note("заголовок5", "описание5", "понедельник5", 2));
+            notes.add(new Note("заголовок0", "описание0", "понедельник0", 3));
+            notes.add(new Note("заголовок1", "описание1", "понедельник1", 1));
+            notes.add(new Note("заголовок2", "описание2", "понедельник2", 2));
+            notes.add(new Note("заголовок3", "описание3", "понедельник3", 3));
+            notes.add(new Note("заголовок4", "описание4", "понедельник4", 1));
+            notes.add(new Note("заголовок5", "описание5", "понедельник5", 2));
         }
         notesAdapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
