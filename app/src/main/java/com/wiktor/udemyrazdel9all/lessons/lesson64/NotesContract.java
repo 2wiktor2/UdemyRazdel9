@@ -16,12 +16,18 @@ public class NotesContract {
 
 
         //Создать команду которая создает таблицу
-        public static String CREATE_COMMAND = "CREATE TABLE IN NOT EXIST " + TABLE_NAME +
+/*        public static String CREATE_COMMAND = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME +
                 "(" + _ID + " " + TYPE_INTEGER + " PRIMARY_KEY AUTOINCREMENT, "
                 + COLUMN_TITLE + " " + TYPE_TEXT + ", "
                 + COLUMN_DESCRIPTION + " " + TYPE_TEXT + ", "
                 + COLUMN_DAY_OF_WEEK + " " + TYPE_TEXT + ", "
-                + COLUMN_PRIORITY + " " + TYPE_INTEGER + ")";
+                + COLUMN_PRIORITY + " " + TYPE_INTEGER + ")";*/
+        public static final String CREATE_COMMAND = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME +
+                "(" + _ID + " " + TYPE_INTEGER + " PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_TITLE + " " + TYPE_TEXT + ", " +
+                COLUMN_DESCRIPTION + " " + TYPE_TEXT + ", " +
+                COLUMN_DAY_OF_WEEK + " " + TYPE_TEXT + ", " +
+                COLUMN_PRIORITY + " " + TYPE_INTEGER + ")";
 
         // Создать команду для удатения таблицы
         public static final String DROP_COMMAND = "DROP TABLE IF EXISTS" + TABLE_NAME;  //--- DROP TABLE IF EXISTS - удальть таблицу если она существует + имя таблицы
