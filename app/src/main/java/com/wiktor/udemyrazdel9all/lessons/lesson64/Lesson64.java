@@ -3,6 +3,9 @@ package com.wiktor.udemyrazdel9all.lessons.lesson64;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,15 +25,14 @@ public class Lesson64 extends AppCompatActivity {
     private RecyclerView recyclerViewNotes;
     private final ArrayList<Note> notes = new ArrayList<>();
     private NotesAdapter notesAdapter;
-
-    private NotesDataBase dataBase;
+private MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson64);
 
-        dataBase = NotesDataBase.getInstance(this);
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         // Скрыть ActionBar
         ActionBar actionBar = getSupportActionBar();
@@ -78,17 +80,23 @@ public class Lesson64 extends AppCompatActivity {
     }
 
     private void remove(int position) {
-        Note note = notes.get(position);
-        dataBase.notesDao().deleteNote(note);
-        // Получаем все заметки из бд.
-        getData();
-        notesAdapter.notifyDataSetChanged();
+        Note note = notesAdapter.getNotes().get(position);
+        viewModel.deleteNote(note);
     }
 
     private void getData() {
-        List<Note> notesFromDB = dataBase.notesDao().getAllNotes();
-        notes.clear();
-        notes.addAll(notesFromDB);
+        //LiveData<List<Note>> notesFromDB = dataBase.notesDao().getAllNotes(); //теперь этот объект notesFromDb стал observable(объект просматривается), т.е. если в нем произойдут какие-то изменения, то бд сообщит об этих изменениях.
+        LiveData<List<Note>> notesFromDB = viewModel.getNotes();
+        notesFromDB.observe(this, new Observer<List<Note>>() {
+            @Override
+            public void onChanged(List<Note> notesFromLiveData) {
+/*                notes.clear();
+                notes.addAll(notesFromLiveData);
+                notesAdapter.notifyDataSetChanged();*/
+                notesAdapter.setNotes(notesFromLiveData);
+            }
+        });
+
     }
 
 }
