@@ -11,7 +11,7 @@ public class NotesDBHelper extends SQLiteOpenHelper {
     //Вынести название базы данных в переменную
     private static final String DB_NAME = "notes.db";
     // Вынести версию БД в переменную, при создании бд ей всегда рисваивается номер версии 1, при обновлении базы данных меняется номр версии 2,3,4 и т.д.
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     public NotesDBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
