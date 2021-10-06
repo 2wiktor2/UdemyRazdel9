@@ -1,47 +1,48 @@
 package com.wiktor.udemyrazdel9all.lessons.lesson64;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.wiktor.udemyrazdel9all.R;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lesson64 extends AppCompatActivity {
 
     private RecyclerView recyclerViewNotes;
-    public static final ArrayList<Note> notes = new ArrayList<>();
+    private final ArrayList<Note> notes = new ArrayList<>();
     private NotesAdapter notesAdapter;
+
+    private NotesDataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson64);
 
-        recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
-        if (notes.isEmpty()) {
-            notes.add(new Note("заголовок0", "описание0", "понедельник0", 3));
-            notes.add(new Note("заголовок1", "описание1", "понедельник1", 1));
-            notes.add(new Note("заголовок2", "описание2", "понедельник2", 2));
-            notes.add(new Note("заголовок3", "описание3", "понедельник3", 3));
-            notes.add(new Note("заголовок4", "описание4", "понедельник4", 1));
-            notes.add(new Note("заголовок5", "описание5", "понедельник5", 2));
+        dataBase = NotesDataBase.getInstance(this);
+
+        // Скрыть ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
         }
+
+        recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
+
+        //Получаем все заметки из бд.
+        getData();
+
         notesAdapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(notesAdapter);
@@ -49,7 +50,6 @@ public class Lesson64 extends AppCompatActivity {
             @Override
             public void onNoteClick(int position) {
                 Toast.makeText(Lesson64.this, "номер позиции:" + position, Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
@@ -78,7 +78,17 @@ public class Lesson64 extends AppCompatActivity {
     }
 
     private void remove(int position) {
-        notes.remove(position);
+        Note note = notes.get(position);
+        dataBase.notesDao().deleteNote(note);
+        // Получаем все заметки из бд.
+        getData();
         notesAdapter.notifyDataSetChanged();
     }
+
+    private void getData() {
+        List<Note> notesFromDB = dataBase.notesDao().getAllNotes();
+        notes.clear();
+        notes.addAll(notesFromDB);
+    }
+
 }
