@@ -2,6 +2,7 @@ package com.wiktor.udemyrazdel9all.lessons.lesson64;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -23,15 +24,14 @@ public class AddNoteActivity extends AppCompatActivity {
     private Spinner spinnerDayOfWeek;
     private RadioGroup radioGroupPriority;
 
-    private NotesDataBase dataBase;
+    private MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
-        dataBase = NotesDataBase.getInstance(this);
-
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         // Скрыть ActionBar
         ActionBar actionBar = getSupportActionBar();
@@ -71,7 +71,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
         if (isFilled(title, description)) {
             Note note = new Note(title, description, dayOfWeek, priority);
-            dataBase.notesDao().insertNote(note);
+            viewModel.insertNote(note);
             Intent intent = new Intent(this, Lesson64.class);
             startActivity(intent);
         } else {
