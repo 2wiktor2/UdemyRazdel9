@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lessons.lesson64.AddNoteActivity">
+    tools:context=".lessons.lesson_from_64_to_71.AddNoteActivity">
 
     <EditText
         android:id="@+id/editTextTitle"

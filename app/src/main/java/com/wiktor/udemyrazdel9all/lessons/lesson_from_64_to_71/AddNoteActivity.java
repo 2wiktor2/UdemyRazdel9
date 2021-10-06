@@ -1,14 +1,11 @@
-package com.wiktor.udemyrazdel9all.lessons.lesson64;
+package com.wiktor.udemyrazdel9all.lessons.lesson_from_64_to_71;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;

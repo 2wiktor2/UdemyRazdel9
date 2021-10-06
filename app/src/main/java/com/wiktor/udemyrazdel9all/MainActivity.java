@@ -16,7 +16,7 @@ import com.wiktor.udemyrazdel9all.lessons.Lesson60;
 import com.wiktor.udemyrazdel9all.lessons.Lesson61;
 import com.wiktor.udemyrazdel9all.lessons.Lesson62;
 import com.wiktor.udemyrazdel9all.lessons.lesson63.Lesson63;
-import com.wiktor.udemyrazdel9all.lessons.lesson64.Lesson64;
+import com.wiktor.udemyrazdel9all.lessons.lesson_from_64_to_71.Lesson64;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

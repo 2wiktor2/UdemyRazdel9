@@ -1,4 +1,4 @@
-package com.wiktor.udemyrazdel9all.lessons.lesson64;
+package com.wiktor.udemyrazdel9all.lessons.lesson_from_64_to_71;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wiktor.udemyrazdel9all.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {

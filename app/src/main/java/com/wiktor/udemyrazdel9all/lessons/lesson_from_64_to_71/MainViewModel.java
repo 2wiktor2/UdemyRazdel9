@@ -1,7 +1,6 @@
-package com.wiktor.udemyrazdel9all.lessons.lesson64;
+package com.wiktor.udemyrazdel9all.lessons.lesson_from_64_to_71;
 
 import android.app.Application;
-import android.app.AsyncNotedAppOp;
 import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;

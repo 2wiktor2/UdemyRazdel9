@@ -14,8 +14,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".lessons.ActivityStopWatch"></activity>
         <activity android:name=".lessons.ActivityTimer" />
-        <activity android:name=".lessons.lesson64.AddNoteActivity" />
-        <activity android:name=".lessons.lesson64.Lesson64" />
+        <activity android:name=".lessons.lesson_from_64_to_71.AddNoteActivity" />
+        <activity android:name=".lessons.lesson_from_64_to_71.Lesson64" />
         <activity android:name=".lessons.lesson63.ScoreActivityLesson63" />
         <activity android:name=".lessons.lesson63.Lesson63" />
         <activity android:name=".lessons.Lesson62" />
