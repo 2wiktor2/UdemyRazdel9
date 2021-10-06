@@ -7,24 +7,15 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.wiktor.udemyrazdel9all.R;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lesson64 extends AppCompatActivity {
 
@@ -32,20 +23,25 @@ public class Lesson64 extends AppCompatActivity {
     private final ArrayList<Note> notes = new ArrayList<>();
     private NotesAdapter notesAdapter;
 
+    private NotesDataBase dataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson64);
 
+        dataBase = NotesDataBase.getInstance(this);
+
         // Скрыть ActionBar
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
+        if (actionBar != null) {
             actionBar.hide();
         }
 
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
 
         //Получаем все заметки из бд.
+        getData();
 
         notesAdapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
@@ -82,10 +78,17 @@ public class Lesson64 extends AppCompatActivity {
     }
 
     private void remove(int position) {
-        int id = notes.get(position).getId();
+        Note note = notes.get(position);
+        dataBase.notesDao().deleteNote(note);
         // Получаем все заметки из бд.
-
+        getData();
         notesAdapter.notifyDataSetChanged();
+    }
+
+    private void getData() {
+        List<Note> notesFromDB = dataBase.notesDao().getAllNotes();
+        notes.clear();
+        notes.addAll(notesFromDB);
     }
 
 }
