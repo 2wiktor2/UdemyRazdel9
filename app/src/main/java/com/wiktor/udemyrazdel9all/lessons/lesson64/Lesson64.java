@@ -32,9 +32,6 @@ public class Lesson64 extends AppCompatActivity {
     private final ArrayList<Note> notes = new ArrayList<>();
     private NotesAdapter notesAdapter;
 
-    private NotesDBHelper dbHelper;
-    private SQLiteDatabase database;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +45,8 @@ public class Lesson64 extends AppCompatActivity {
 
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
 
-        dbHelper = new NotesDBHelper(this);
-        database = dbHelper.getWritableDatabase();
-
         //Получаем все заметки из бд.
-        getDate();
+
         notesAdapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(notesAdapter);
@@ -89,43 +83,9 @@ public class Lesson64 extends AppCompatActivity {
 
     private void remove(int position) {
         int id = notes.get(position).getId();
-        String where = NotesContract.NotesEntry._ID + " ++ ?";
-        String[] whereArgs = new String[]{Integer.toString(id)};
-        database.delete(NotesContract.NotesEntry.TABLE_NAME, where, whereArgs);
         // Получаем все заметки из бд.
-        getDate();
+
         notesAdapter.notifyDataSetChanged();
     }
-
-    // Метод где мы получаем данные из базы данных и присваиваем их массиву. Получаем все заметки из бд.
-    private void getDate() {
-        // отчистка списка с заметками перед обновлением данных
-        notes.clear();
-
-/*        //Вывод заметок с приоритетом , например, меньше чем 2
-        String selection = NotesContract.NotesEntry.COLUMN_PRIORITY + " < ?";
-        String[] selectionArgs = new String[]{"4"};    // передаем 2 в ковычках, т.к. это массив строк*/
-
-        //Вывод заметок, например, за воскресенье
-        String selection = NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK + " == ?";
-        String[] selectionArgs = new String[]{"7"};    // передаем 7 в ковычках, т.к. это массив строк
-
-
-        // Сортировка по названию колонки. Нужно добавить название колонки в orderBy (NotesContract.NotesEntry.COLUMN_PRIORITY или NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK)
-        Cursor cursor = database.query(NotesContract.NotesEntry.TABLE_NAME, null, selection, selectionArgs, null, null, NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK);
-
-        while (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex(NotesContract.NotesEntry._ID));
-            String title = cursor.getString(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_TITLE));
-            String description = cursor.getString(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_DESCRIPTION));
-            int dayOfWeek = cursor.getInt(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK));
-            int priority = cursor.getInt(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_PRIORITY));
-
-            Note note = new Note(id, title, description, dayOfWeek, priority);
-            notes.add(note);
-        }
-        cursor.close();
-    }
-
 
 }

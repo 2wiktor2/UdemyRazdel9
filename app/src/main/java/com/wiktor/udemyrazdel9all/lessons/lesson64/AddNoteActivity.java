@@ -23,9 +23,6 @@ public class AddNoteActivity extends AppCompatActivity {
     private Spinner spinnerDayOfWeek;
     private RadioGroup radioGroupPriority;
 
-    private NotesDBHelper dbHelper;
-    private SQLiteDatabase database;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +36,6 @@ public class AddNoteActivity extends AppCompatActivity {
         }
 
 
-        dbHelper = new NotesDBHelper(this);
-        database = dbHelper.getWritableDatabase();
 
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription = findViewById(R.id.editTextTextDescription);
@@ -63,7 +58,6 @@ public class AddNoteActivity extends AppCompatActivity {
             contentValues.put(NotesContract.NotesEntry.COLUMN_DESCRIPTION, description);
             contentValues.put(NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK, dayOfWeek + 1);
             contentValues.put(NotesContract.NotesEntry.COLUMN_PRIORITY, priority);
-            database.insert(NotesContract.NotesEntry.TABLE_NAME, null, contentValues);
 
             Intent intent = new Intent(this, Lesson64.class);
             startActivity(intent);
